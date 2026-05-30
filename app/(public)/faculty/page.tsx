@@ -6,7 +6,7 @@ import { PageHeader } from "@/components/public/page-header";
 import { Section } from "@/components/public/section";
 import { FacultyCard } from "@/components/public/faculty-card";
 
-export const metadata: Metadata = { title: "Faculty" };
+export const metadata: Metadata = { title: "Staff" };
 
 export default async function FacultyPage() {
   const t = getDictionary(getLocale()).faculty;
@@ -14,7 +14,7 @@ export default async function FacultyPage() {
 
   const departments: string[] = [];
   for (const member of faculty) {
-    const dept = member.department || "Faculty";
+    const dept = member.department || "Staff";
     if (!departments.includes(dept)) departments.push(dept);
   }
 

@@ -184,41 +184,33 @@ export const getGalleryPhotos = unstable_cache(
 );
 
 /**
- * The principal card on the home/about pages derives from the Faculty member whose
- * designation contains "Principal" (falling back to the first member, then to demo
- * copy). Their Bio becomes the message; tagged `faculty` so admin edits revalidate it.
+ * The Founder's Message card on the home/about pages. Fully editable from the
+ * admin Settings page (Settings.founder), so it's tagged `settings`. The stored
+ * `message` string is split on blank lines into paragraphs. Any missing field
+ * falls back to the demo founder copy.
  */
 export const getPrincipal = unstable_cache(
   async (): Promise<PrincipalInfo> => {
     await connectDB();
-    let doc: any = await Faculty.findOne({
-      designation: { $regex: "principal", $options: "i" },
-    }).lean();
-    if (!doc) doc = await Faculty.findOne().sort({ order: 1 }).lean();
+    const doc: any = await Settings.findOne({ key: "site" }).lean();
+    const f = doc?.founder ?? {};
 
-    if (!doc) {
-      return {
-        name: demoPrincipal.name,
-        designation: demoPrincipal.designation,
-        photo: demoPrincipal.photo,
-        message: demoPrincipal.message,
-      };
-    }
-
-    const bio = (doc.bio || "").trim();
-    const message = bio
-      ? bio.split(/\n+/).map((s: string) => s.trim()).filter(Boolean)
+    const rawMessage = (f.message || "").trim();
+    const message = rawMessage
+      ? rawMessage.split(/\n+/).map((s: string) => s.trim()).filter(Boolean)
       : demoPrincipal.message;
 
+    const name = f.name || demoPrincipal.name;
+
     return {
-      name: doc.name,
-      designation: doc.designation || "Principal",
-      photo: doc.photo || avatar(doc.name),
+      name,
+      designation: f.designation || demoPrincipal.designation,
+      photo: f.photo || avatar(name),
       message,
     };
   },
-  ["principal"],
-  { tags: [CONTENT_TAGS.faculty] }
+  ["founder-message"],
+  { tags: [CONTENT_TAGS.settings] }
 );
 
 export const getSiteSettings = unstable_cache(
@@ -229,7 +221,7 @@ export const getSiteSettings = unstable_cache(
       schoolName: doc?.schoolName || siteConfig.name,
       tagline: doc?.tagline || siteConfig.tagline,
       logoUrl: doc?.logoUrl || "",
-      heroImage: doc?.heroImages?.[0] || "/rr/bihar-diwas.jpg",
+      heroImage: doc?.heroImages?.[0] || "/rr/hero-home.jpg",
       address: doc?.address || siteConfig.address,
       phone: doc?.phone || siteConfig.phone,
       email: doc?.email || siteConfig.email,

@@ -65,25 +65,27 @@ export function SiteHeader({
 
       {/* Main bar */}
       <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
-        <div className="container flex h-16 items-center justify-between gap-4">
-          <Link href="/" className="flex items-center gap-2.5 font-semibold">
-            {settings.logoUrl ? (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={settings.logoUrl}
-                alt={dict.common.schoolName}
-                className="size-10 shrink-0 rounded-md object-contain"
-              />
-            ) : (
-              <span className="grid size-10 shrink-0 place-items-center rounded-md bg-primary text-sm font-bold text-primary-foreground">
-                RR
+        <div className="container flex min-h-20 items-center justify-between gap-3 py-2 xl:h-16 xl:min-h-0 xl:py-0">
+          <Link href="/" className="flex min-w-0 flex-col gap-0.5 font-semibold">
+            <span className="flex items-center gap-2.5">
+              {settings.logoUrl ? (
+                // eslint-disable-next-line @next/next/no-img-element
+                <img
+                  src={settings.logoUrl}
+                  alt={dict.common.schoolName}
+                  className="size-12 shrink-0 rounded-md object-contain xl:size-10"
+                />
+              ) : (
+                <span className="grid size-12 shrink-0 place-items-center rounded-md bg-primary text-base font-bold text-primary-foreground xl:size-10 xl:text-sm">
+                  RR
+                </span>
+              )}
+              <span className="text-base font-bold leading-tight xl:text-base xl:font-semibold">
+                {dict.common.schoolName}
               </span>
-            )}
-            <span className="leading-tight">
-              <span className="block text-sm sm:text-base">{dict.common.schoolName}</span>
-              <span className="block text-[11px] font-normal text-muted-foreground">
-                {settings.tagline}
-              </span>
+            </span>
+            <span className="text-xs font-normal leading-tight text-muted-foreground xl:text-[11px]">
+              {settings.tagline}
             </span>
           </Link>
 
@@ -115,7 +117,7 @@ export function SiteHeader({
             <Button
               variant="ghost"
               size="icon"
-              className="xl:hidden"
+              className="size-11 xl:hidden [&_svg]:size-6"
               aria-label="Toggle menu"
               aria-expanded={open}
               onClick={() => setOpen((v) => !v)}
@@ -127,17 +129,25 @@ export function SiteHeader({
 
         {/* Mobile menu */}
         <div className={cn("border-t xl:hidden", open ? "block" : "hidden")}>
-          <nav className="container flex flex-col py-2">
+          <nav className="container flex flex-col py-3">
             {mainNav.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-accent hover:text-foreground"
+                className="rounded-md px-3 py-3 text-base font-medium text-foreground transition-colors hover:bg-accent active:bg-accent"
               >
                 {dict.navLabels[link.href] ?? link.label}
               </Link>
             ))}
+            <Button
+              asChild
+              size="lg"
+              className="mt-2 bg-gold text-base text-gold-foreground hover:bg-gold/90"
+              onClick={() => setOpen(false)}
+            >
+              <Link href="/admissions">{dict.common.admissions}</Link>
+            </Button>
           </nav>
         </div>
       </div>

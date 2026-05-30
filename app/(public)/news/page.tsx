@@ -8,7 +8,7 @@ import { NewsCard } from "@/components/public/news-card";
 import { EventCard } from "@/components/public/event-card";
 import { NoticeRow } from "@/components/public/notice-row";
 
-export const metadata: Metadata = { title: "News & Updates" };
+export const metadata: Metadata = { title: "News & Events" };
 
 export default async function NewsPage() {
   const dict = getDictionary(getLocale());

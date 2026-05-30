@@ -21,6 +21,15 @@ const settingsSchema = new Schema(
       youtube: { type: String, default: "" },
       twitter: { type: String, default: "" },
     },
+    // Founder's Message shown on the home and about pages. Fully editable from
+    // the admin Settings page. `message` holds the full text; blank lines split
+    // it into paragraphs on the public site.
+    founder: {
+      name: { type: String, default: "" },
+      designation: { type: String, default: "" },
+      photo: { type: String, default: "" },
+      message: { type: String, default: "" },
+    },
     mapEmbedUrl: { type: String, default: "" },
   },
   { timestamps: true }

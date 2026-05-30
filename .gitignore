@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.venv-whisper
 /.pnp
 .pnp.js
 .yarn/install-state.gz
@@ -19,6 +20,9 @@
 # misc
 .DS_Store
 *.pem
+
+# local working docs (source images, audio, transcripts — not for the repo)
+/docs/
 
 # debug
 npm-debug.log*

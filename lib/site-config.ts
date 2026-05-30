@@ -10,7 +10,7 @@ export const siteConfig = {
   description:
     "RR International School & Hostel, Samastipur — value-based education from Nursery to Class 10, with hostel facility, smart classes and in-house entrance-exam coaching.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  phone: "9013594532",
+  phone: "8340474969",
   email: "rrissamastipur@gmail.com",
   address: "Paper Mill Campus, Jitwarpur, Samastipur, Bihar 848101",
 };
@@ -25,9 +25,9 @@ export const mainNav: NavLink[] = [
   // app/(public)/academics/page.tsx and restore /academics in app/sitemap.ts.
   // { label: "Academics", href: "/academics" },
   { label: "Entrance Exams", href: "/entrance-exams" },
-  { label: "Faculty", href: "/faculty" },
+  { label: "Staff", href: "/faculty" },
   { label: "Gallery", href: "/gallery" },
-  { label: "News & Updates", href: "/news" },
+  { label: "News & Events", href: "/news" },
   { label: "Contact Us", href: "/contact" },
 ];
 

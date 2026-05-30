@@ -37,7 +37,7 @@ export function SiteFooter({
                 RR
               </span>
             )}
-            {dict.common.schoolShort}
+            {dict.common.schoolName}
           </div>
           <p className="text-sm">{dict.common.schoolBlurb}</p>
           <div className="flex items-center gap-3 pt-1">

@@ -15,6 +15,7 @@ import {
   notices,
   faculty,
   gallery,
+  principal as founder,
 } from "../lib/demo-content";
 import { siteConfig } from "../lib/site-config";
 import { News } from "../models/News";
@@ -182,10 +183,17 @@ async function main() {
       schoolName: siteConfig.name,
       tagline: siteConfig.tagline,
       logoUrl: "/rr/logo.jpg",
+      heroImages: ["/rr/hero-home.jpg"],
       address: siteConfig.address,
       phone: siteConfig.phone,
       email: siteConfig.email,
       socials: { facebook: "https://facebook.com/rrissamastipur" },
+      founder: {
+        name: founder.name,
+        designation: founder.designation,
+        photo: "",
+        message: founder.message.join("\n\n"),
+      },
       mapEmbedUrl:
         "https://www.google.com/maps?q=Jitwarpur+Samastipur+Bihar&output=embed",
     },

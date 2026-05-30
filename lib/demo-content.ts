@@ -33,12 +33,15 @@ export const tickerItems = [
   "Parent–Teacher Meeting scheduled for 21 June",
 ];
 
+// Default Founder's Message, used as a fallback until the school fills in the
+// Founder fields on the admin Settings page. Name, photo and text are all
+// editable there and override these values everywhere they appear.
 export const principal = {
-  name: "Sushil Kumar Suman",
-  designation: "Principal",
-  photo: avatar("Sushil Kumar Suman"),
+  name: "Dr. Raja Ram Yadav",
+  designation: "Founder & Chairman",
+  photo: avatar("Raja Ram Yadav"),
   message: [
-    "आर.आर. इंटरनेशनल स्कूल एंड हॉस्टल में आपका स्वागत है। हमारा मानना है कि अच्छी शिक्षा सिर्फ़ किताबों तक सीमित नहीं — यह बच्चे के संस्कार, सोच और आत्मविश्वास को भी बढ़ाती है।",
+    "आर आर इंटरनेशनल स्कूल एंड हॉस्टल में आपका स्वागत है। हमारा मानना है कि अच्छी शिक्षा सिर्फ़ किताबों तक सीमित नहीं — यह बच्चे के संस्कार, सोच और आत्मविश्वास को भी बढ़ाती है।",
     "हमारे अनुभवी टीचर्स हर बच्चे पर ध्यान देते हैं, ताकि वह पढ़ाई के साथ-साथ एक अच्छा इंसान भी बने। हम आपको हमारे कैंपस पर आने और इस परिवार का हिस्सा बनने के लिए आमंत्रित करते हैं।",
   ],
 };
@@ -120,7 +123,7 @@ export const news: NewsItem[] = [
     body: [
       "RR International School & Hostel has opened admissions for the new session for all classes from Nursery to Class 10.",
       "Hostel facility with healthy food and RO water is available for outstation students.",
-      "Parents can call 9013594532 or visit the school office in Jitwarpur, Samastipur for details.",
+      "Parents can call 8340474969 or visit the school office in Jitwarpur, Samastipur for details.",
     ],
   },
   {
@@ -282,8 +285,8 @@ export type Faculty = {
   bio?: string;
 };
 
-// Founder and Principal are real. Teacher entries are placeholders the school
-// will replace with its actual roster via the admin panel.
+// Founder and Vice Principal are real. Teacher entries are placeholders the
+// school will replace with its actual roster via the admin panel.
 export const faculty: Faculty[] = [
   {
     name: "Dr. Raja Ram Yadav",
@@ -294,12 +297,11 @@ export const faculty: Faculty[] = [
     bio: "Founder of RR International School & Hostel and the RR Foundation. A former Indian Air Force serviceman and lifelong educator, poet and motivational speaker, committed to bringing quality, value-based education to Samastipur.",
   },
   {
-    name: "Sushil Kumar Suman",
-    designation: "Principal",
+    name: "Anubhav Kumar",
+    designation: "Vice Principal",
     department: "Management",
-    qualifications: "M.A., B.Ed.",
-    photo: avatar("Sushil Kumar Suman"),
-    bio: "RR International School & Hostel में आपका स्वागत है। हमारा मानना है कि अच्छी शिक्षा सिर्फ़ किताबों तक सीमित नहीं — यह बच्चे के संस्कार, सोच और आत्मविश्वास को भी बढ़ाती है।\n\nहमारे अनुभवी teachers हर बच्चे पर ध्यान देते हैं, ताकि वह पढ़ाई के साथ-साथ एक अच्छा इंसान भी बने। हम आपको हमारे campus पर आने और इस परिवार का हिस्सा बनने के लिए आमंत्रित करते हैं।",
+    qualifications: "",
+    photo: "/rr/faculty-anubhav-kumar.jpeg",
   },
   { name: "Ramesh Kumar", designation: "Senior Teacher", department: "Mathematics", qualifications: "M.Sc., B.Ed.", photo: avatar("Ramesh Kumar") },
   { name: "Sunita Devi", designation: "Teacher", department: "Hindi", qualifications: "M.A. (Hindi), B.Ed.", photo: avatar("Sunita Devi") },

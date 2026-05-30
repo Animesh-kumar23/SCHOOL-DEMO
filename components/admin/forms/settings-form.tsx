@@ -40,6 +40,12 @@ export function SettingsForm({ initial }: { initial?: any }) {
         youtube: initial?.socials?.youtube ?? "",
         twitter: initial?.socials?.twitter ?? "",
       },
+      founder: {
+        name: initial?.founder?.name ?? "",
+        designation: initial?.founder?.designation ?? "",
+        photo: initial?.founder?.photo ?? "",
+        message: initial?.founder?.message ?? "",
+      },
     },
   });
 
@@ -125,6 +131,38 @@ export function SettingsForm({ initial }: { initial?: any }) {
             <Input id="twitter" {...register("socials.twitter")} />
           </Field>
         </div>
+      </fieldset>
+
+      <fieldset className="space-y-4 rounded-lg border p-4">
+        <legend className="px-1 text-sm font-medium">Founder&apos;s Message</legend>
+        <p className="text-xs text-muted-foreground">
+          Shown in the &ldquo;From the Founder&apos;s Desk&rdquo; section on the home and
+          about pages. Leave a blank line between paragraphs in the message.
+        </p>
+        <div className="flex flex-wrap gap-6">
+          <Field label="Founder name" htmlFor="founderName" className="flex-1">
+            <Input id="founderName" {...register("founder.name")} />
+          </Field>
+          <Field label="Designation" htmlFor="founderDesignation" className="flex-1">
+            <Input
+              id="founderDesignation"
+              placeholder="Founder &amp; Chairman"
+              {...register("founder.designation")}
+            />
+          </Field>
+        </div>
+        <Field label="Founder photo">
+          <Controller
+            control={control}
+            name="founder.photo"
+            render={({ field }) => (
+              <ImageUploader value={field.value ?? ""} onChange={field.onChange} />
+            )}
+          />
+        </Field>
+        <Field label="Message" htmlFor="founderMessage">
+          <Textarea id="founderMessage" rows={6} {...register("founder.message")} />
+        </Field>
       </fieldset>
 
       <Field

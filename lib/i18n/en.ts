@@ -5,9 +5,9 @@ export const en = {
     "/": "Home",
     "/academics": "Academics",
     "/entrance-exams": "Entrance Exams",
-    "/faculty": "Faculty",
+    "/faculty": "Staff",
     "/gallery": "Gallery",
-    "/news": "News & Updates",
+    "/news": "News & Events",
     "/contact": "Contact Us",
   } as Record<string, string>,
 
@@ -30,7 +30,7 @@ export const en = {
     backToEvents: "Back to Events",
     upcoming: "Upcoming",
     pastEvent: "Past Event",
-    staffLogin: "Staff Login",
+    staffLogin: "Admin Portal",
     switchTo: "हिंदी",
   },
 
@@ -52,7 +52,7 @@ export const en = {
       "Hostel facility available with healthy food & RO water",
       "Entrance-exam coaching: Sainik School, Navodaya, Simultala & more",
       "Smart classes, computer lab and library on campus",
-      "Call 9013594532 for admission enquiries",
+      "Call 8340474969 for admission enquiries",
     ],
   },
 
@@ -75,8 +75,8 @@ export const en = {
     whyTitle: "More Than Just Books",
     whyDesc:
       "We focus on strong basics, good values and all-round growth — so every child learns with confidence and care.",
-    principalEyebrow: "From the Principal's Desk",
-    principalTitle: "A Message of Welcome",
+    principalEyebrow: "From the Founder's Desk",
+    principalTitle: "Founder's Message",
     newsEyebrow: "Stay Updated",
     newsTitle: "Latest News",
     eventsEyebrow: "Mark Your Calendar",
@@ -167,8 +167,8 @@ export const en = {
       "CCTV security, fire safety and first aid",
       "GPS-enabled school transport",
     ],
-    principalEyebrow: "From the Principal's Desk",
-    principalTitle: "A Message of Welcome",
+    principalEyebrow: "From the Founder's Desk",
+    principalTitle: "Founder's Message",
   },
 
   academics: {
@@ -310,10 +310,10 @@ export const en = {
   },
 
   faculty: {
-    headerTitle: "Our Faculty",
+    headerTitle: "Our Staff",
     headerSubtitle:
       "A dedicated team that mentors, guides and brings out the best in every student.",
-    empty: "Faculty profiles are being updated.",
+    empty: "Staff profiles are being updated.",
   },
 
   gallery: {
@@ -332,7 +332,7 @@ export const en = {
   },
 
   updates: {
-    headerTitle: "News & Updates",
+    headerTitle: "News & Events",
     headerSubtitle:
       "All the latest news, events and notices from RR International School — in one place.",
     newsTitle: "Latest News",
@@ -372,7 +372,7 @@ export const en = {
     headerTitle: "Contact Us",
     headerSubtitle:
       "We'd love to hear from you. Call us, send a message, or visit the campus.",
-    sendTitle: "Send Us a Message",
+    sendTitle: "Send your query",
     addressLabel: "Address",
     phoneLabel: "Phone",
     emailLabel: "Email",

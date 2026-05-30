@@ -17,6 +17,14 @@ export const settingsSchema = z.object({
       twitter: z.string().optional().or(z.literal("")),
     })
     .default({}),
+  founder: z
+    .object({
+      name: z.string().optional().or(z.literal("")),
+      designation: z.string().optional().or(z.literal("")),
+      photo: z.string().optional().or(z.literal("")),
+      message: z.string().optional().or(z.literal("")),
+    })
+    .default({}),
   mapEmbedUrl: z.string().optional().or(z.literal("")),
 });
 
