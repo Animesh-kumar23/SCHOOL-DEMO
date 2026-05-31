@@ -19,7 +19,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: `${siteConfig.name} — CBSE School`,
+    default: `${siteConfig.name} — Nursery to Class 10, Samastipur`,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -29,11 +29,18 @@ export const metadata: Metadata = {
     title: siteConfig.name,
     description: siteConfig.description,
     url: siteConfig.url,
+    images: [
+      {
+        url: "/rr/hero-home.jpg",
+        alt: siteConfig.name,
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: siteConfig.name,
     description: siteConfig.description,
+    images: ["/rr/hero-home.jpg"],
   },
 };
 
