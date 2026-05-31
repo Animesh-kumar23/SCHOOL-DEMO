@@ -15,7 +15,7 @@ export default async function PublicLayout({
   return (
     <div className="flex min-h-screen flex-col">
       <SiteHeader settings={settings} dict={dict} locale={locale} />
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 overflow-x-clip">{children}</main>
       <SiteFooter settings={settings} dict={dict} />
     </div>
   );

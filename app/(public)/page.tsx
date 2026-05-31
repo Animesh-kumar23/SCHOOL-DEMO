@@ -216,7 +216,7 @@ export default async function HomePage() {
       {/* Events + Notices */}
       <Section>
         <div className="container grid gap-10 lg:grid-cols-2">
-          <div>
+          <div className="min-w-0">
             <SectionHeading
               align="left"
               eyebrow={t.eventsEyebrow}
@@ -236,7 +236,7 @@ export default async function HomePage() {
             </div>
           </div>
 
-          <div>
+          <div className="min-w-0">
             <SectionHeading
               align="left"
               eyebrow={t.noticesEyebrow}
