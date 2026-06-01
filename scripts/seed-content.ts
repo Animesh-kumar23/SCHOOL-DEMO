@@ -182,7 +182,7 @@ async function main() {
       key: "site",
       schoolName: siteConfig.name,
       tagline: siteConfig.tagline,
-      logoUrl: "/rr/logo.jpg",
+      logoUrl: "/rr/logo-transparent.png",
       heroImages: ["/rr/hero-home.jpg"],
       address: siteConfig.address,
       phone: siteConfig.phone,
