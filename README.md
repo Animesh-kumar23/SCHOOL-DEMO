@@ -108,6 +108,12 @@ scripts/           seed-admin, seed-content
   changing an env var on Vercel you must redeploy (uncheck "Use existing Build Cache" for
   `NEXT_PUBLIC_*` values, which are inlined at build time).
 
+## License
+
+This project is licensed under the Apache License 2.0. See [LICENSE](LICENSE).
+
+Copyright 2026 Animesh Kumar.
+
 ## Notes
 
 - The `docs/` folder (source photos, PDFs, working files) is intentionally git-ignored.
