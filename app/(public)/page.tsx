@@ -71,8 +71,8 @@ export default async function HomePage() {
           <div className="relative">
             <div className="relative aspect-[4/3] overflow-hidden rounded-xl shadow-lg">
               <Image
-                src="/rr/classroom-home.jpg"
-                alt={settings.schoolName}
+                src="/rr/campus-building.jpg"
+                alt={`${settings.schoolName} campus`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

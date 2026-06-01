@@ -1,11 +1,15 @@
-# Greenfield International School — Website & CMS
+# RR International School & Hostel — Website & CMS
 
-A complete, SEO-friendly school website with a self-service admin dashboard, built so
-school staff can manage all content (news, events, notices, gallery, faculty, settings)
-without a developer.
+The official website for **RR International School & Hostel**, Jitwarpur, Samastipur — a
+value-based school (Nursery to Class 10) with a hostel and in-house entrance-exam coaching.
+It ships with a self-service admin dashboard so school staff can manage all content (news,
+events, notices, gallery, staff, and site settings) without a developer.
+
+**Live:** <https://rrworld.org>
 
 Built with **Next.js 14 (App Router) + TypeScript**, **MongoDB/Mongoose**, **NextAuth**,
 **Tailwind + shadcn/ui**, **Tiptap**, and **Cloudinary**. Deploys free on **Vercel**.
+Bilingual (English / हिंदी) with a cookie-based locale toggle.
 
 ---
 
@@ -41,12 +45,23 @@ npm run dev                       # http://localhost:3000
 | Script | What it does |
 |---|---|
 | `npm run dev` | Start the dev server |
-| `npm run build` | Production build (runs on Vercel/Linux — see caveat below) |
+| `npm run build` | Production build |
 | `npm run start` | Serve a production build |
 | `npm run lint` | ESLint |
 | `npm run typecheck` | `tsc --noEmit` — full type check |
 | `npm run seed:admin` | Create/update an admin user from `SEED_ADMIN_*` env vars |
 | `npm run seed:content` | Seed demo content (`-- --fresh` to wipe first) |
+
+## What admins can manage
+
+Everything visitors see is editable from `/admin` and revalidates on the public site within
+~1s of saving:
+
+- **News, Events, Notices, Gallery, Staff** — full create/edit/delete with image uploads.
+- **Settings** — school name, logo, homepage hero image, address, phone, email, social links,
+  Google Maps embed, and the editable **Founder's Message** (name, photo, designation, text)
+  shown on the home and about pages.
+- **Submissions** — contact-form enquiries land here (and are also emailed if Resend is set up).
 
 ## Architecture
 
@@ -59,39 +74,42 @@ npm run dev                       # http://localhost:3000
   `revalidateTag()` after a save — so public pages update within ~1s of an admin edit (ISR).
 - **Images** upload directly to Cloudinary using a short-lived signature from
   `/api/upload` (the API secret never reaches the browser). Any image URL can also be pasted.
+  Static brand images (logo, default hero, gallery seeds) live in `public/rr/`.
 - **Contact form** posts to `/api/contact` → validates → saves a Submission → emails the
-  office via Resend (best-effort).
+  office via Resend (best-effort; the submission is saved even if email isn't configured).
+- **SEO/PWA** — sitemap, robots, OpenGraph share image, favicons (`app/favicon.ico`,
+  `app/icon.png`, `app/apple-icon.png`) and a web manifest (`app/manifest.ts`).
 
 See `lib/`, `models/`, and `components/` for the details.
 
 ## Project structure
 
 ```
-app/(public)/      Public marketing pages (home, about, news, events, …)
+app/(public)/      Public pages (home, academics, news, events, faculty, gallery, contact)
 app/admin/         Admin dashboard (auth-gated CRUD)
 app/api/           Route handlers (auth, resources, upload, contact, settings)
 components/public/ Public UI (Hero, NewsCard, GalleryGrid, …)
 components/admin/  Admin UI (DataTable, forms, RichTextEditor, ImageUploader)
 components/ui/     shadcn primitives
+lib/i18n/          English + Hindi dictionaries
 lib/               db, auth, queries, crud, validation, cloudinary, email
 models/            Mongoose schemas
+public/rr/         Static school images (logo, hero, gallery)
 scripts/           seed-admin, seed-content
 ```
 
 ## Deployment & handover
 
-- **Deploy:** see [docs/DEPLOYMENT.md](docs/DEPLOYMENT.md) — a step-by-step checklist for
-  MongoDB Atlas, Cloudinary, Resend, Vercel, and the custom domain.
-- **For school staff:** see [docs/ADMIN-GUIDE.md](docs/ADMIN-GUIDE.md) — how to manage content.
+- **Deploy:** see [DEPLOYMENT.md](DEPLOYMENT.md) — a step-by-step checklist for MongoDB Atlas,
+  Cloudinary, Vercel, and the custom domain.
+- **For school staff:** see [ADMIN-GUIDE.md](ADMIN-GUIDE.md) — how to manage content.
 - **Env vars:** `.env.example` is the template; the full list (and where each value comes
-  from) is in the deployment guide.
+  from) is in the deployment guide. The live site reads content from the database, so after
+  changing an env var on Vercel you must redeploy (uncheck "Use existing Build Cache" for
+  `NEXT_PUBLIC_*` values, which are inlined at build time).
 
-## ⚠️ Windows + OneDrive build caveat
+## Notes
 
-This project folder lives under OneDrive. `npm run build` can fail locally on Windows
-because OneDrive locks/syncs the `.next` build folder (`EINVAL`/`EBUSY` errors). This does
-**not** affect `npm run dev`, and it does **not** affect Vercel (which builds on Linux).
-
-For local verification use `npm run typecheck` + `npm run dev`. If a long dev session starts
-throwing 500s, stop the server, delete `.next`, and restart. The permanent fix is to move
-the project out of the OneDrive-synced tree.
+- The `docs/` folder (source photos, PDFs, working files) is intentionally git-ignored.
+- Content shown on the live site comes from MongoDB, not the seed files — edit it in `/admin`
+  (or re-seed) rather than expecting code changes to demo content to appear in production.

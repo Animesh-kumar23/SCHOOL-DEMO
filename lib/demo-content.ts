@@ -316,17 +316,20 @@ export type GalleryImage = {
   category: "events" | "campus" | "sports" | "academics" | "cultural";
 };
 
-// Real RR International photos (from the school's Facebook page).
+// Real RR International photos from school events and campus.
 export const gallery: GalleryImage[] = [
+  { url: "/rr/campus-building.jpg", alt: "RR International School & Hostel campus, Jitwarpur, Samastipur", category: "campus" },
+  { url: "/rr/independence-day.jpg", alt: "Students waving the tricolour on Independence Day", category: "cultural" },
+  { url: "/rr/students-awards.jpg", alt: "Students with RR Foundation Excellence Award certificates", category: "events" },
+  { url: "/rr/staff-felicitation.jpg", alt: "Staff felicitation at an RR International function", category: "events" },
+  { url: "/rr/management-team.jpg", alt: "RR International School management at a school function", category: "events" },
+  { url: "/rr/classroom-home.jpg", alt: "Students in an RR International classroom", category: "campus" },
   { url: "/rr/classroom.jpg", alt: "Bright, colourful pre-primary classroom", category: "campus" },
   { url: "/rr/classroom-2.jpg", alt: "Colourful classroom with alphabet charts", category: "campus" },
   { url: "/rr/students-group.jpg", alt: "Students at a school celebration", category: "events" },
   { url: "/rr/student-uniform.jpg", alt: "Young student in RR International uniform", category: "campus" },
-  { url: "/rr/class-session.jpg", alt: "Students in a class session", category: "academics" },
   { url: "/rr/bihar-diwas.jpg", alt: "Students at the Bihar Diwas awareness rally", category: "events" },
   { url: "/rr/ambedkar-jayanti.jpg", alt: "Ambedkar Jayanti observed at school", category: "events" },
-  { url: "/rr/event-1.jpg", alt: "School function on campus", category: "events" },
-  { url: "/rr/event-2.jpg", alt: "Students and staff at a school programme", category: "events" },
   { url: "/rr/entrance-coaching.jpg", alt: "Entrance-exam coaching batches at RR International", category: "academics" },
   { url: "/rr/banner.jpg", alt: "RR International School — admissions open, Nursery to Class 10", category: "campus" },
   { url: "/rr/banner-admission.jpg", alt: "RR International School & Hostel — Admission Open", category: "campus" },
