@@ -23,6 +23,8 @@
 
 # local working docs (source images, audio, transcripts — not for the repo)
 /docs/
+/case study/
+/memory/
 
 # debug
 npm-debug.log*
@@ -30,7 +32,9 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-.env*.local
+.env
+.env.*
+!.env.example
 
 # vercel
 .vercel

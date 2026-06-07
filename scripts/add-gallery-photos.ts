@@ -66,7 +66,7 @@ async function main() {
   let skipped = 0;
   let albumsCreated = 0;
 
-  for (const [category, imgs] of byCat) {
+  for (const [category, imgs] of Array.from(byCat.entries())) {
     let album = await Gallery.findOne({ category });
     if (!album) {
       album = new Gallery({
