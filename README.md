@@ -8,7 +8,8 @@ events, notices, gallery, staff, and site settings) without a developer.
 **Live:** <https://rrworld.org>
 
 Built with **Next.js 14 (App Router) + TypeScript**, **MongoDB/Mongoose**, **NextAuth**,
-**Tailwind + shadcn/ui**, **Tiptap**, and **Cloudinary**. Deploys free on **Netlify**.
+**Tailwind + shadcn/ui**, **Tiptap**, and **Cloudinary**. Deploys on **Netlify Free**
+with Cloudflare DNS.
 Bilingual (English / हिंदी) with a cookie-based locale toggle.
 
 ---
@@ -101,12 +102,12 @@ scripts/           seed-admin, seed-content
 ## Deployment & handover
 
 - **Deploy:** see [DEPLOYMENT.md](DEPLOYMENT.md) — a step-by-step checklist for MongoDB Atlas,
-  Cloudinary, Netlify, and the custom domain.
+  Cloudinary, Netlify, Cloudflare DNS, and the custom domain.
 - **For school staff:** see [ADMIN-GUIDE.md](ADMIN-GUIDE.md) — how to manage content.
 - **Env vars:** `.env.example` is the template; the full list (and where each value comes
   from) is in the deployment guide. The live site reads content from the database, so after
-  changing an env var on Netlify you must redeploy (uncheck "Use existing Build Cache" for
-  `NEXT_PUBLIC_*` values, which are inlined at build time).
+  changing an env var on Netlify you must redeploy. Use **Clear cache and deploy site** when
+  changing `NEXT_PUBLIC_*` values, which are inlined at build time.
 
 ## License
 
@@ -117,5 +118,7 @@ Copyright 2026 Animesh Kumar.
 ## Notes
 
 - The `docs/` folder (source photos, PDFs, working files) is intentionally git-ignored.
+- Production runs on Netlify with `rrworld.org` as the primary domain; `www.rrworld.org`
+  redirects to it. DNS stays in Cloudflare because the domain is registered there.
 - Content shown on the live site comes from MongoDB, not the seed files — edit it in `/admin`
   (or re-seed) rather than expecting code changes to demo content to appear in production.
